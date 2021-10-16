@@ -35,7 +35,12 @@ const main = () => {
     name.innerHTML = 'Tic Tac Toe'
 
     const win = (side) => {
-        name.innerHTML = side ? 'O won' : 'X won'
+        if (side === 2) {
+            name.innerHTML = 'Draw'
+        } else {
+            name.innerHTML = side ? 'O won' : 'X won'
+        }
+        
         for(const h of handlers) {
             h.item.removeEventListener('click', h.handler)
             h.item.className = ''
@@ -95,6 +100,18 @@ const main = () => {
             if(curr !== 0) {
                 return curr
             }
+        }
+
+        let filled = true
+        for (let i = 0; i < 9; i++) {
+            if (board[i] === 0) {
+                filled = false
+                break
+            }
+        }
+
+        if (filled) {
+            return 3
         }
 
         return 0
