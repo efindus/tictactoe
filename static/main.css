@@ -21,8 +21,8 @@ html, body {
 	grid-row: 1;
 	grid-column: 1 / 4;
 	color: #ffffff;
-	font-size: clamp(2rem, -0.875rem + min(8.333333vw, 8.333333vh), 5rem);
-	margin-bottom: 20px;
+	font-size: clamp(1.6rem, -0.875rem + min(8.333333vw, 8.333333vh), 5rem);
+	margin-bottom: clamp(5px, -5.5px + min(3vw, 3vh), 20px);
 }
 
 #restart-container {
@@ -31,7 +31,7 @@ html, body {
 	flex-direction: column;
 	grid-row: 3;
 	grid-column: 2 / 3;
-	margin: 10px;
+	margin-top: clamp(3.5px, -5.5px + 2vh, 10px);
 }
 
 #restart {
@@ -41,8 +41,8 @@ html, body {
 	flex-direction: column;
 	background-color: #ffffff;
 	border-radius: min(1.6vw, 1.6vh);
-	font-size: clamp(2rem, -0.875rem + min(8.333333vw, 8.333333vh), 3.5rem);
-	padding: 5px 50px;
+	font-size: clamp(1.6rem, -0.875rem + min(8.333333vw, 8.333333vh), 5rem);
+	padding: clamp(1.5px, -5.5px + min(2vh, 12vw), 5px) clamp(10px, -5.5px + 10vw, 50px);
 }
 
 #restart-container > .active {
