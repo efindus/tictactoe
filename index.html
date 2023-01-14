@@ -1,31 +1,38 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
+	<head>
+		<title>Tic Tac Toe</title>
 
-  <head>
-    <meta charset="UTF-8">
-    <title>Tic Tac Toe</title>
+		<link rel="stylesheet" href="static/main.css">
 
-    <meta property="og:title" content="TicTacToe" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://tictactoe.efindus.xyz" />
-    <meta property="og:image" content="https://tictactoe.efindus.xyz/static/logo.png">
-    <meta property="og:description" content="Tic Tac Toe" />
-    <meta name="theme-color" content="#18edd8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="Description" content="Tic Tac Toe">
-    <link rel="stylesheet" href="static/main.css">
-    <link rel="manifest" href="static/manifest.json">
-    <link rel="apple-touch-icon" href="/static/logo128.png">
-    <link rel="apple-touch-icon" href="/static/logo144.png">
-    <link rel="apple-touch-icon" href="/static/logo192t.png">
-  </head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
-  <body style="background-color:#191a19;">
-    <div id="container">
-      <div id="name">Tic Tac Toe</div>
-      <div id="box"></div>
-      <div id="restart-container"><div id="restart" class="active">Restart</div></div>
-    </div>
-    <script type="text/javascript" src="/static/main.js"></script>
-  </body>
+		<meta property="og:title" content="TicTacToe">
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="https://tictactoe.efindus.xyz">
+		<meta property="og:image" content="https://tictactoe.efindus.xyz/static/logo.png">
+		<meta property="og:description" content="Tic Tac Toe">
+		<meta name="theme-color" content="#18edd8">
+		<meta name="Description" content="Tic Tac Toe">
+		<link rel="manifest" href="static/manifest.json">
+		<link rel="apple-touch-icon" href="/static/logo128.png">
+		<link rel="apple-touch-icon" href="/static/logo144.png">
+		<link rel="apple-touch-icon" href="/static/logo192t.png">
+	</head>
+
+	<body>
+		<div id="content" class="container">
+			<noscript>
+				<div class="nojs">Unfortunately, this game doesn't work without JavaScript. Please turn it on if you want to play. The code isn't obfuscated so you can audit it yourself.</div>
+			</noscript>
+			<div class="title">Tic Tac Toe</div>
+			<div class="box"></div>
+			<div class="ui">
+				<div id="restart" class="button-style active">Restart</div>
+			</div>
+		</div>
+
+		<script type="text/javascript" src="/static/main.js"></script>
+	</body>
 </html>
