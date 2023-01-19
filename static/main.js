@@ -6,10 +6,10 @@ const title = document.querySelector('.title');
 const restart = document.getElementById('restart');
 
 // If we didn't set the width safari wouldn't render the svg...
-const circleSvg = `<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100" viewBox="0 0 1 1">
+const circleSvg = `<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" viewBox="0 0 1 1">
 	<circle cx="0.5" cy="0.5" r="0.35" stroke="black" stroke-width="0.05" fill="none"></circle>
 </svg>`;
-const crossSvg = `<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100" viewBox="0 0 1 1">
+const crossSvg = `<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" viewBox="0 0 1 1">
 	<line x1="0.15" y1="0.15" x2="0.85" y2="0.85" stroke="black" stroke-width="0.05"></line>
 	<line x1="0.15" y1="0.85" x2="0.85" y2="0.15" stroke="black" stroke-width="0.05"></line>
 </svg>`;
@@ -29,70 +29,35 @@ const win = (side) => {
 	}
 };
 
+const checkSpots = (arr) => {
+	if (arr.every(v => board[arr[0]] === board[v]))
+		return board[arr[0]];
+	else
+		return 0;
+};
+
+const genArr = (start, skip, limit) => {
+	const res = [];
+	for (let i = start; i < start + limit; i += skip)
+		res.push(i);
+
+	return res;
+};
+
 const checkForWin = () => {
+	const arrs = [];
 	for (let x = 0; x < 3; x++) {
-		let curr = 0;
-		for (let i = 3 * x; i < 3 + 3 * x; i++) {
-			if (i === 3 * x) {
-				curr = board[i];
-			} else {
-				if (board[i] !== curr) {
-					curr = 0;
-					break;
-				}
-			}
-		}
-
-		if(curr !== 0)
-			return curr;
+		arrs.push(genArr(3 * x, 1, 3));
+		arrs.push(genArr(x, 3, 9 - x));
+		if (x % 2 === 0)
+			arrs.push(genArr(x, x ? 2 : 4, x ? 5 : 9));
 	}
 
-	for (let x = 0; x < 3; x++) {
-		let curr = 0;
-		for (let i = x; i < 9; i += 3) {
-			if (i === x) {
-				curr = board[i];
-			} else {
-				if (board[i] !== curr) {
-					curr = 0;
-					break;
-				}
-			}
-		}
+	let res = 0;
+	if (!arrs.some(v => res = checkSpots(v)) && board.every(v => v !== 0))
+		res = 3;
 
-		if(curr !== 0)
-			return curr;
-	}
-
-	for (let x = 0; x < 3; x += 2) {
-		let curr = 0;
-		for (let i = x; i < (!x ? 9 : 8); i += !x ? 4 : 2) {
-			if (i === x) {
-				curr = board[i];
-			} else {
-				if (board[i] !== curr) {
-					curr = 0;
-					break;
-				}
-			}
-		}
-
-		if(curr !== 0)
-			return curr;
-	}
-
-	let filled = true;
-	for (let i = 0; i < 9; i++) {
-		if (board[i] === 0) {
-			filled = false;
-			break;
-		}
-	}
-
-	if (filled)
-		return 3;
-
-	return 0;
+	return res;
 };
 
 const setup = () => {
