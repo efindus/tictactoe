@@ -47,8 +47,7 @@ const genArr = (start, skip, limit) => {
 const checkForWin = () => {
 	const arrs = [];
 	for (let x = 0; x < 3; x++) {
-		arrs.push(genArr(3 * x, 1, 3));
-		arrs.push(genArr(x, 3, 9 - x));
+		arrs.push(genArr(3 * x, 1, 3), genArr(x, 3, 9 - x));
 		if (x % 2 === 0)
 			arrs.push(genArr(x, x ? 2 : 4, x ? 5 : 9));
 	}
@@ -60,7 +59,7 @@ const checkForWin = () => {
 	return res;
 };
 
-const setup = () => {
+const main = () => {
 	title.innerHTML = 'Tic Tac Toe';
 	boxContainer.innerHTML = '';
 
@@ -70,17 +69,14 @@ const setup = () => {
 	tiles = [ ...boxContainer.children ];
 	board = Array(9).fill(0);
 	currentSide = true;
-};
-
-const main = () => {
-	setup();
 
 	handlers = [];
 	for (let i = 0; i < 9; i++) {
+		const c = tiles[i];
 		const handler = () => {
-			tiles[i].innerHTML = currentSide ? crossSvg : circleSvg;
-			tiles[i].removeEventListener('click', handler);
-			tiles[i].className = '';
+			c.innerHTML = currentSide ? crossSvg : circleSvg;
+			c.removeEventListener('click', handler);
+			c.className = '';
 
 			board[i] = currentSide + 1, currentSide = !currentSide;
 
@@ -90,12 +86,12 @@ const main = () => {
 		}
 
 		handlers.push({
-			item: tiles[i],
+			item: c,
 			handler,
 		});
 
-		tiles[i].classList.add('active');
-		tiles[i].addEventListener('click', handler);
+		c.classList.add('active');
+		c.addEventListener('click', handler);
 	}
 }
 
