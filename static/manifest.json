@@ -4,7 +4,7 @@
     "start_url": "../",
     "display": "standalone",
     "background_color": "#191a19",
-    "theme_color": "#62ea51",
+    "theme_color": "#18ed6d",
     "description": "Tic Tac Toe",
     "icons": [
         {
@@ -13,37 +13,37 @@
             "type": "image/png"
         },
         {
-            "src": "logo128.png",
+            "src": "logo/128.png",
             "sizes": "128x128",
             "type": "image/png"
         },
         {
-            "src": "logo144.png",
+            "src": "logo/144.png",
             "sizes": "144x144",
             "type": "image/png"
         },
         {
-            "src": "logo144.png",
+            "src": "logo/144.png",
             "sizes": "144x144",
             "type": "image/png"
         },
         {
-            "src": "logo192.png",
+            "src": "logo/192.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "logo192.png",
+            "src": "logo/192.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "logo192t.png",
+            "src": "logo/192t.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "logo192t2.png",
+            "src": "logo/192t2.png",
             "sizes": "192x192",
             "type": "image/png",
             "purpose": "maskable"
